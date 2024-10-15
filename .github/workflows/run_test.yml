@@ -1,0 +1,23 @@
+name: Run Tests
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          # Installer les dépendances (exemple pour Node.js)
+          npm install
+
+      - name: Run tests
+        run: |
+          # Exécuter les tests
+          npm test
