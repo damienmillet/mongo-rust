@@ -9,7 +9,7 @@ assignees: damienmillet
 
 ### Description
 
-CRUD for mongodb
+...
 
 ### Tests
 
