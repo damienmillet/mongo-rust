@@ -2,7 +2,7 @@
 
 ## Objectif
 
-Ce projet a pour objectif de mettre en place une API REST en Rust qui permet de
+Ce projet a pour objectif de mettre en place une application en Rust qui permet de
 manipuler une base de données MongoDB le tout en suivant la methode TDD. Il
 s'agit d'un projet d'apprentissage pour découvrir le langage Rust et la base de
 données MongoDB. Il n'y a pas d'api pour communiquer avec la base de données,
