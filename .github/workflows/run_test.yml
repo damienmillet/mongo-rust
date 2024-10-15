@@ -1,23 +1,32 @@
-name: Run Tests
+name: Run Rust Tests
 
 on:
   pull_request:
     types: [opened, edited, synchronize]
+  push:
+    branches:
+      - main
 
 jobs:
-  run-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
+      # Étape 1 : Récupérer le code de la branche
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: |
-          # Installer les dépendances (exemple pour Node.js)
-          npm install
+      # Étape 2 : Installer Rust
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
+      # Étape 3 : Vérifier la qualité du code avec cargo fmt (facultatif)
+      - name: Run Cargo fmt
+        run: cargo fmt -- --check
+
+      # Étape 4 : Lancer les tests avec cargo test
       - name: Run tests
-        run: |
-          # Exécuter les tests
-          npm test
+        run: cargo test --verbose
